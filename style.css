@@ -1,0 +1,530 @@
+/* ============================================
+   NMSU Triathlon Club — Shared Stylesheet
+   Colors are NMSU's official brand palette:
+   https://brand.nmsu.edu/color/index.html
+   ============================================ */
+
+:root {
+  --crimson: #8C0B42;
+  --crimson-dark: #6d0834;
+  --white-sands: #FFFFFF;
+  --desert-sand: #D7C9C4;
+  --organ-mountain: #B6A5AD;
+  --desert-monsoon: #6D6E71;
+  --text-dark: #2b2b2b;
+
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Inter", Arial, sans-serif;
+
+  --max-width: 1100px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background: var(--desert-sand);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+/* ---------- Nav ---------- */
+.site-header {
+  background: var(--crimson);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nav-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+}
+
+.logo {
+  color: var(--white-sands);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo .tri-mark {
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--white-sands);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--white-sands);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+nav a:hover,
+nav a.active {
+  border-bottom-color: var(--white-sands);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 2px solid var(--white-sands);
+  border-radius: 4px;
+  color: var(--white-sands);
+  font-size: 1.3rem;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .nav-toggle { display: block; }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--crimson-dark);
+  }
+  nav ul.open { display: flex; }
+  nav ul li { border-top: 1px solid rgba(255,255,255,0.15); }
+  nav ul li a { display: block; padding: 1rem 1.5rem; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--organ-mountain);
+  text-align: center;
+  padding: 3rem 1.5rem;
+  overflow: hidden;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+}
+
+.hero-box {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-box {
+  background: var(--white-sands);
+  padding: 2.5rem 3rem;
+  max-width: 640px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+.hero-box h1 {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  margin: 0;
+  color: var(--text-dark);
+  line-height: 1.15;
+}
+
+.hero-sub {
+  margin-top: 0.75rem;
+  color: var(--desert-monsoon);
+  font-size: 1.05rem;
+}
+
+.hero-photo-note {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  pointer-events: none;
+}
+
+/* Simple page hero (no photo) for interior pages */
+.page-hero {
+  background: var(--crimson);
+  color: var(--white-sands);
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+.page-hero p {
+  margin-top: 0.5rem;
+  color: rgba(255,255,255,0.85);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem;
+}
+
+.section.white-bg { background: var(--white-sands); }
+.section-full-white { background: var(--white-sands); }
+
+.section h2 {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+.section p.lead {
+  max-width: 760px;
+  margin: 1rem auto 0;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.center { text-align: center; }
+
+.btn {
+  display: inline-block;
+  margin-top: 1.75rem;
+  padding: 0.8rem 2rem;
+  background: var(--crimson);
+  color: var(--white-sands);
+  text-decoration: none;
+  font-family: var(--font-display);
+  letter-spacing: 0.4px;
+  border: 2px solid var(--crimson);
+  border-radius: 2px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover { background: var(--crimson-dark); border-color: var(--crimson-dark); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-dark);
+  border: 2px solid var(--text-dark);
+}
+
+.btn-outline:hover {
+  background: var(--text-dark);
+  color: var(--white-sands);
+}
+
+/* ---------- Past Competitions banner ---------- */
+.band {
+  background: var(--desert-sand);
+  padding: 2.2rem 1.5rem;
+  text-align: left;
+}
+
+.band h2 {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-size: 2.3rem;
+  text-align: left;
+}
+
+/* ---------- Competition entry ---------- */
+.competition {
+  background: #EFEBE9;
+  padding: 2.5rem 1.5rem;
+}
+
+.competition:nth-child(even) { background: #ffffff; }
+
+.competition-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.competition-inner h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin-bottom: 0.2rem;
+}
+
+.competition-date {
+  font-size: 1.15rem;
+  color: var(--desert-monsoon);
+  margin-bottom: 1.2rem;
+}
+
+.competition-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .competition-grid { grid-template-columns: 1fr; }
+}
+
+.competition-text ul {
+  padding-left: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.competition-text .roster-label {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* ---------- Slideshow ---------- */
+.slideshow {
+  position: relative;
+  background: #ddd;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.slideshow .slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideshow .slide.active { display: flex; }
+
+.slideshow .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideshow .slide .placeholder-label {
+  color: #777;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.85);
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  transition: background 0.2s ease;
+}
+
+.slide-arrow:hover { background: #fff; }
+.slide-arrow.prev { left: 10px; }
+.slide-arrow.next { right: 10px; }
+
+.thumb-strip {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.thumb-strip button {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 48px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #ccc;
+}
+
+.thumb-strip button.active { border-color: var(--crimson); }
+
+.thumb-strip img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Sponsors ---------- */
+.sponsors {
+  background: var(--white-sands);
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.sponsor-grid {
+  max-width: var(--max-width);
+  margin: 1.75rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.sponsor-box {
+  background: var(--desert-sand);
+  border-radius: 4px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--desert-monsoon);
+  font-size: 0.85rem;
+  padding: 0.5rem;
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+a.sponsor-box {
+  text-decoration: none;
+}
+
+a.sponsor-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.sponsor-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* ---------- Contact ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 720px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+.contact-card {
+  background: var(--white-sands);
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.contact-card h3 {
+  font-family: var(--font-display);
+  margin-top: 0;
+  color: var(--crimson);
+}
+
+.contact-card p { margin: 0.4rem 0; }
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: var(--crimson);
+  font-weight: 600;
+  border: 1px solid var(--crimson);
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.social-links a:hover { background: var(--crimson); color: #fff; }
+
+/* ---------- Sprint triathlon page ---------- */
+.race-card {
+  background: var(--white-sands);
+  max-width: 700px;
+  margin: 2rem auto 0;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.race-card h2 { margin-top: 0; }
+
+.note {
+  background: #FFF7E6;
+  border: 1px solid #F1D9A0;
+  border-radius: 4px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.9rem;
+  color: #7a5c1e;
+  margin: 1.5rem auto 0;
+  max-width: 700px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--crimson-dark);
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our History — NMSU Triathlon Club</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">
+      <span class="tri-mark">NM</span>
+      NMSU Triathlon Club
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="history.html" class="active">Our History</a></li>
+        <li><a href="sprint-triathlon.html">NMSU Sprint Triathlon</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="band">
+  <h2>Past Competitions</h2>
+</div>
+
+<!-- ============================================================
+     Each <div class="competition"> block below is ONE event.
+     To add a new competition:
+       1. Copy an entire <div class="competition"> ... </div> block
+       2. Paste it right after this comment (newest on top) or at
+          the bottom (oldest on top) — your choice
+       3. Update the title, date, description, and roster names
+       4. Update the slides: each <div class="slide"> holds one
+          image. Add or remove <div class="slide"> blocks and
+          matching <button> thumbnails to match how many photos
+          you have. Just keep the numbers matching each other.
+     ============================================================ -->
+
+<div class="competition">
+  <div class="competition-inner">
+    <h3>Collegiate Club Nationals &mdash; Gulfport, MS</h3>
+    <div class="competition-date">March 2026</div>
+    <div class="competition-grid">
+
+      <!--
+        SLIDESHOW PHOTOS for this event:
+        1. Put image files in the "images" folder, e.g. images/gulfport-1.jpg
+        2. Change each <img src="..."> below to match your filenames
+        3. Each slide needs a matching thumbnail <button><img></button> in the
+           same order — the thumbnail images can be the same files
+        4. To add/remove photos, add/remove one <div class="slide"> AND one
+           thumbnail <button> together (keep the counts equal)
+      -->
+      <div>
+        <div class="slideshow-wrap">
+          <div class="slideshow">
+            <div class="slide active">
+              <img src="images/gulfport-1.jpg" alt="Gulfport race photo 1">
+            </div>
+            <div class="slide">
+              <img src="images/gulfport-2.jpg" alt="Gulfport race photo 2">
+            </div>
+            <div class="slide">
+              <img src="images/gulfport-3.jpg" alt="Gulfport race photo 3">
+            </div>
+            <div class="slide">
+              <img src="images/gulfport-4.jpg" alt="Gulfport race photo 4">
+            </div>
+            <button class="slide-arrow prev" aria-label="Previous photo">&#10094;</button>
+            <button class="slide-arrow next" aria-label="Next photo">&#10095;</button>
+          </div>
+          <div class="thumb-strip">
+            <button class="active" aria-label="Photo 1"><img src="images/gulfport-1.jpg" alt=""></button>
+            <button aria-label="Photo 2"><img src="images/gulfport-2.jpg" alt=""></button>
+            <button aria-label="Photo 3"><img src="images/gulfport-3.jpg" alt=""></button>
+            <button aria-label="Photo 4"><img src="images/gulfport-4.jpg" alt=""></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="competition-text">
+        <p>
+          The team rented a van and drove 17 hours overnight to the collegiate
+          nationals race in Gulfport, Mississippi. This was another great
+          experience for the team, with an ocean swim, low elevation, a flat
+          bike, and flat run. Similar to Miami, the Olympic race has almost
+          1,000 entrants split among multiple waves. NMSU Triathlon Club had
+          five representatives at the race: four athletes and one team
+          photographer.
+        </p>
+        <div class="roster-label">Team:</div>
+        <ul>
+          <li>Kyle Klawiter</li>
+          <li>Trevon Del Ferraro</li>
+          <li>Liam Boyden</li>
+          <li>Colin Ross</li>
+          <li>Photographer: Landon Stewart</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Example second entry — duplicate this pattern for every past race -->
+<div class="competition">
+  <div class="competition-inner">
+    <h3>[ Race Name — City, State ]</h3>
+    <div class="competition-date">[ Month Year ]</div>
+    <div class="competition-grid">
+
+      <div>
+        <div class="slideshow-wrap">
+          <div class="slideshow">
+            <div class="slide active">
+              <img src="images/REPLACE-1.jpg" alt="Race photo 1">
+            </div>
+            <div class="slide">
+              <img src="images/REPLACE-2.jpg" alt="Race photo 2">
+            </div>
+            <button class="slide-arrow prev" aria-label="Previous photo">&#10094;</button>
+            <button class="slide-arrow next" aria-label="Next photo">&#10095;</button>
+          </div>
+          <div class="thumb-strip">
+            <button class="active" aria-label="Photo 1"><img src="images/REPLACE-1.jpg" alt=""></button>
+            <button aria-label="Photo 2"><img src="images/REPLACE-2.jpg" alt=""></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="competition-text">
+        <p>[ Write a short recap of this race — what it was like, notable moments, results. ]</p>
+        <div class="roster-label">Team:</div>
+        <ul>
+          <li>[ Name ]</li>
+          <li>[ Name ]</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 NMSU Triathlon Club &middot; New Mexico State University
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
