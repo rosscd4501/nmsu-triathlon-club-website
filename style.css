@@ -12,6 +12,7 @@
   --organ-mountain: #B6A5AD;
   --desert-monsoon: #6D6E71;
   --text-dark: #2b2b2b;
+  
 
   --font-display: "Oswald", "Arial Narrow", sans-serif;
   --font-body: "Inter", Arial, sans-serif;
@@ -37,7 +38,7 @@ a { color: inherit; }
 
 /* ---------- Nav ---------- */
 .site-header {
-  background: var(--crimson);
+  background: var(--crimson-dark);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -168,24 +169,26 @@ nav a.active {
 }
 
 .hero-box {
-  background: var(--desert-sand);
-  padding: 2.5rem 3rem;
+  background: var(--crimson-dark);
+  padding: 2rem;
   max-width: 640px;
+  border: .5rem var(--text-dark) solid;
+  border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.25);
 }
 
 .hero-box h1 {
   font-family: var(--font-display);
-  font-size: 2.6rem;
+  font-size: 4rem;
   margin: 0;
-  color: var(--text-dark);
+  color: var(--white-sands);
   line-height: 1.15;
 }
 
 .hero-sub {
-  margin-top: 0.75rem;
-  color: var(--desert-monsoon);
-  font-size: 1.05rem;
+  margin-top: 0.5rem;
+  color: var(--text-dark);
+  font-size: 1.5rem;
 }
 
 .hero-photo-note {
@@ -228,6 +231,8 @@ nav a.active {
 
 .section.white-bg { background: var(--white-sands); }
 .section-full-white { background: var(--white-sands); }
+.section-tan { background: var(--desert-sand); }
+
 
 .section h2 {
   font-family: var(--font-display);
@@ -276,15 +281,16 @@ nav a.active {
 .band {
   background: var(--desert-sand);
   padding: 2.2rem 1.5rem;
-  text-align: left;
+  text-align: center;
+  
 }
 
 .band h2 {
   max-width: var(--max-width);
   margin: 0 auto;
   font-family: var(--font-display);
-  font-size: 2.3rem;
-  text-align: left;
+  font-size: 3rem;
+  text-align: center;
 }
 
 /* ---------- Competition entry ---------- */
@@ -308,7 +314,7 @@ nav a.active {
 
 .competition-date {
   font-size: 1.15rem;
-  color: var(--desert-monsoon);
+  color: var(--text-dark);
   margin-bottom: 1.2rem;
 }
 
@@ -319,8 +325,25 @@ nav a.active {
   align-items: start;
 }
 
+.competition:nth-child(even) .competition-grid {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.competition:nth-child(even) .competition-text {
+  order: 1;
+}
+
+.competition:nth-child(even) .competition-grid > div:first-child {
+  order: 2;
+}
+
 @media (max-width: 800px) {
   .competition-grid { grid-template-columns: 1fr; }
+
+  .competition:nth-child(even) .competition-text,
+  .competition:nth-child(even) .competition-grid > div:first-child {
+    order: initial;
+  }
 }
 
 .competition-text ul {
