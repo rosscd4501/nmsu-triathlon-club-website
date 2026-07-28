@@ -21,9 +21,43 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function setupSlideshow(wrap) {
-  const slides = wrap.querySelectorAll(".slide");
-  const thumbs = wrap.querySelectorAll(".thumb-strip button");
+  const slides = Array.from(wrap.querySelectorAll(".slide"));
+  const thumbStrip = wrap.querySelector(".thumb-strip");
+  let thumbs = thumbStrip ? Array.from(thumbStrip.querySelectorAll("button")) : [];
   let current = 0;
+  let autoAdvanceTimer = null;
+  let isPaused = false;
+
+  if (thumbStrip && thumbs.length === 0) {
+    slides.forEach((slide, index) => {
+      const slideImg = slide.querySelector("img");
+      const thumb = document.createElement("button");
+      thumb.type = "button";
+      thumb.setAttribute("aria-label", `Photo ${index + 1}`);
+
+      const thumbImg = document.createElement("img");
+      thumbImg.src = slideImg ? slideImg.getAttribute("src") : "";
+      thumbImg.alt = "";
+
+      thumb.appendChild(thumbImg);
+      thumb.addEventListener("click", () => show(index));
+      thumbStrip.appendChild(thumb);
+    });
+
+    thumbs = Array.from(thumbStrip.querySelectorAll("button"));
+  } else {
+    thumbs.forEach((thumb, i) => {
+      thumb.addEventListener("click", () => show(i));
+    });
+  }
+
+  function startAutoAdvance() {
+    if (isPaused) return;
+    if (autoAdvanceTimer) window.clearInterval(autoAdvanceTimer);
+    autoAdvanceTimer = window.setInterval(() => {
+      show(current + 1);
+    }, 7000);
+  }
 
   function show(index) {
     if (index < 0) index = slides.length - 1;
@@ -31,6 +65,7 @@ function setupSlideshow(wrap) {
     current = index;
     slides.forEach((s, i) => s.classList.toggle("active", i === current));
     thumbs.forEach((t, i) => t.classList.toggle("active", i === current));
+    startAutoAdvance();
   }
 
   const prevBtn = wrap.querySelector(".slide-arrow.prev");
@@ -38,8 +73,14 @@ function setupSlideshow(wrap) {
   if (prevBtn) prevBtn.addEventListener("click", () => show(current - 1));
   if (nextBtn) nextBtn.addEventListener("click", () => show(current + 1));
 
-  thumbs.forEach((thumb, i) => {
-    thumb.addEventListener("click", () => show(i));
+  wrap.addEventListener("mouseenter", () => {
+    isPaused = true;
+    if (autoAdvanceTimer) window.clearInterval(autoAdvanceTimer);
+  });
+
+  wrap.addEventListener("mouseleave", () => {
+    isPaused = false;
+    startAutoAdvance();
   });
 
   show(0);
