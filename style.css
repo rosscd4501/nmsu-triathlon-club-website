@@ -457,7 +457,7 @@ nav a.active {
 }
 
 .sponsor-box {
-  background: var(--desert-sand);
+  background: var(--white-sands);
   border-radius: 4px;
   height: 100px;
   display: flex;
