@@ -1,0 +1,11 @@
+# NMSU Triathlon Club
+
+> Official site of the New Mexico State University Triathlon Club in Las Cruces, NM. Covers club info, past competition recaps, the club's own sprint triathlon race, sponsors, and how to get in touch or join.
+
+## Pages
+
+- [Home](https://nmsutriathlonclub.com/index.html): Club overview, what the team does, and how to join
+- [Our History](https://nmsutriathlonclub.com/history.html): Recaps, team rosters, and photos from past races, including Collegiate Club Nationals and regional conference championships
+- [NMSU Sprint Triathlon](https://nmsutriathlonclub.com/sprint-triathlon.html): Details on the club-hosted sprint triathlon race
+- [Sponsors](https://nmsutriathlonclub.com/sponsors.html): Current sponsors and partnership info
+- [Contact](https://nmsutriathlonclub.com/contact.html): How to contact the club and its social media links
