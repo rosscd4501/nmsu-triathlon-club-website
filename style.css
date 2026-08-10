@@ -455,7 +455,7 @@ nav a.active {
   padding: 2.5rem 1.5rem;
 }
 
-.competition:nth-child(even) { background: #ffffff; }
+.competition:nth-child(even of .competition) { background: #ffffff; }
 
 .competition-inner {
   max-width: var(--max-width);
@@ -487,23 +487,26 @@ nav a.active {
   align-items: start;
 }
 
-.competition:nth-child(even) .competition-grid {
+.competition:nth-child(even of .competition) .competition-grid {
   grid-template-columns: 1fr 1.1fr;
 }
 
-.competition:nth-child(even) .competition-text {
+.competition:nth-child(even of .competition) .competition-text {
   order: 1;
 }
 
-.competition:nth-child(even) .competition-grid > div:first-child {
+.competition:nth-child(even of .competition) .competition-grid > div:first-child {
   order: 2;
 }
 
 @media (max-width: 800px) {
-  .competition-grid { grid-template-columns: 1fr; }
+  .competition-grid,
+  .competition:nth-child(even of .competition) .competition-grid {
+    grid-template-columns: 1fr;
+  }
 
-  .competition:nth-child(even) .competition-text,
-  .competition:nth-child(even) .competition-grid > div:first-child {
+  .competition:nth-child(even of .competition) .competition-text,
+  .competition:nth-child(even of .competition) .competition-grid > div:first-child {
     order: initial;
   }
 }
