@@ -12,6 +12,7 @@
   --organ-mountain: #B6A5AD;
   --desert-monsoon: #6D6E71;
   --text-dark: #2b2b2b;
+  --light-tan: #EFEBE9;
   
 
   --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -250,6 +251,99 @@ nav a.active {
 }
 
 
+/* split contect */
+
+/* ---------- Split Hero ---------- */
+
+.hero-split {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #EFEBE9;
+  color: #000000;
+  min-height: 500px;
+}
+
+/* Left side */
+
+.hero-split-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.hero-split-content h1 {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: #000000;
+}
+
+.hero-split-content p {
+  margin: 0 0 2rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #000000;
+}
+
+/* Button */
+
+.hero-split-button {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.8rem 1.5rem;
+  background: var(--crimson-dark);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero-split-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Right side */
+
+.hero-split-image {
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.hero-split-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+
+  .hero-split {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-split-content {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-split-content h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero-split-image {
+    min-height: 350px;
+  }
+
+}
 
 /* ---------- Sections ---------- */
 .section {
@@ -261,6 +355,7 @@ nav a.active {
 .section.white-bg { background: var(--white-sands); }
 .section-full-white { background: var(--white-sands); }
 .section-tan { background: var(--desert-sand); }
+.section-lighttan { background:#EFEBE9; }
 
 
 .section h2 {
@@ -307,11 +402,14 @@ nav a.active {
 }
 
 /* ---------- Past Competitions banner ---------- */
+/* ---------- Past Competitions banner ---------- */
+
 .band {
+  width: 100%;
   background: var(--desert-sand);
   padding: 2.2rem 1.5rem;
   text-align: center;
-  
+  box-sizing: border-box;
 }
 
 .band h2 {
@@ -681,13 +779,13 @@ a.sponsor-box:hover {
 
 /* ---------- Sprint triathlon page ---------- */
 .race-card {
-  background: var(--white-sands);
+  background: var(--light-tan);
   max-width: 700px;
   margin: 2rem auto 0;
   padding: 2.5rem;
   text-align: center;
   border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  /*box-shadow: 0 2px 10px rgba(0,0,0,0.08);*/
 }
 
 .race-card h2 { margin-top: 0; }
